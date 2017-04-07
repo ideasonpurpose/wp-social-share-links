@@ -9,7 +9,7 @@ class ShareLinks
      * @param string $ga_ua       The Google Analytics tracking ID
      * @param string $fallback_ua A placeholder ID for use in development
      */
-    public function __construct($config = ['twitter' => true, 'linkedin'])
+    public function __construct($config = ['twitter' => true, 'linkedin' => true])
     {
         if (array_key_exists('facebook', $config) && !empty($config['facebook'])) {
             $this->fbAppId = $config['fb'];
@@ -17,6 +17,9 @@ class ShareLinks
         }
 
         if (array_key_exists('twitter', $config) && (bool) $config['twitter']) {
+            $this->twitterInit();
+        }
+        if (array_key_exists('linkedin', $config) && (bool) $config['twitter']) {
             $this->twitterInit();
         }
     }
