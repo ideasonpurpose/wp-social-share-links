@@ -37,7 +37,7 @@ class ShareLink
     {
       global $post;
       $url = ($url) ?: get_the_permalink($post->ID);
-      $onclick = "event.preventDefault(); window.FB.ui({ method: 'share', url: '$url'})";
+      $onclick = "event.preventDefault(); window.FB.ui({ method: 'share', href: '$url'})";
       return sprintf(
         '<a class="facebook" onclick="%s" href="https://www.facebook.com/sharer/sharer.php?u=%s">%s</a>',
         $onclick,
