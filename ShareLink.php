@@ -5,25 +5,32 @@ namespace IdeasOnPurpose;
 class ShareLink
 {
     /**
-     * Add action to wp_head which injects the Google analytics code snippet
-     * @param string $ga_ua       The Google Analytics tracking ID
-     * @param string $fallback_ua A placeholder ID for use in development
+     * Setup the social share libraries, inject register ids and inject scripts
+     *
+     * Twitter and LinkedIn should be booleans, but facebook requires an appID to
+     * iniitalize, so $config['facebook'] should be the appID
+     *
+     * @param  array  $config  keyed array for Twitter, LinkedIn and Facebook
+     * @param  boolean $scriptInHead Where to inject the scripts, wp_head or wp_footer
+     * @return void
      */
-    public function __construct($config = ['twitter' => true, 'linkedin' => true])
+    public function __construct($config = ['twitter' => true, 'linkedin' => true], $scriptInHead = false)
     {
         $config['twitter'] = $config['twitter'] ?? true;
         $config['linkedin'] = $config['linkedin'] ?? true;
         $config['facebook'] = $config['facebook'] ?? false;
 
+        $scriptLocation = $scriptInHead ? 'wp_head' : 'wp_footer';
+
         if (!empty($config['facebook'])) {
             $this->fbAppId = $config['facebook'];
-            add_action('wp_head', [$this, 'injectFacebookSDK']);
+            add_action($scriptLocation, [$this, 'injectFacebookSDK']);
         }
         if ((bool) $config['twitter']) {
-            add_action('wp_head', [$this, 'injectTwitterWidgetsLib']);
+            add_action($scriptLocation, [$this, 'injectTwitterWidgetsLib']);
         }
         if ((bool) $config['linkedin']) {
-            add_action('wp_head', [$this, 'injectLinkedInLib']);
+            add_action($scriptLocation, [$this, 'injectLinkedInLib']);
         }
     }
 
@@ -76,8 +83,7 @@ class ShareLink
      */
     public function injectTwitterWidgetsLib()
     {
-        echo file_get_contents(__DIR__ . '/src/lib/twitter-sdk.html');
-        echo $sdk;
+        require __DIR__ . '/src/lib/twitter-sdk.html';
     }
 
     /**
@@ -103,7 +109,6 @@ class ShareLink
 
     public function injectLinkedInLib()
     {
-        $sdk = file_get_contents(__DIR__ . '/src/lib/linkedin-sdk.html');
-        echo $sdk;
+        require __DIR__ . '/src/lib/linkedin-sdk.html';
     }
 }
