@@ -1,17 +1,18 @@
 {
-    "name": "ideasonpurpose/wp-social-share-links",
-    "description": "Faster injection of contextual share links for WordPress sites",
-    "license": "ISC",
-    "authors": [
-        {
-            "name": "Joe Maller",
-            "email": "joe@ideasonpurpose.com"
-        }
-    ],
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "IdeasOnPurpose\\": ""
-        }
+  "name": "ideasonpurpose/wp-social-share-links",
+  "description": "Faster injection of contextual share links for WordPress sites",
+  "license": "ISC",
+  "authors": [
+    {
+      "name": "Joe Maller",
+      "email": "joe@ideasonpurpose.com"
     }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "IdeasOnPurpose\\": ""
+    }
+  },
+  "version": "1.1.0"
 }

@@ -1,6 +1,6 @@
 {
   "name": "wp-social-share-links",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Initialize an instance of the library by defining which services will be initialized. These services will have their JS SDKs injected in `wp_head`.",
   "keywords": [],
   "homepage": "https://github.com/ideasonpurpose/wp-social-share-links#readme",
