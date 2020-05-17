@@ -1,0 +1,52 @@
+{
+  "name": "wp-social-share-links",
+  "version": "1.0.0",
+  "description": "Initialize an instance of the library by defining which services will be initialized. These services will have their JS SDKs injected in `wp_head`.",
+  "keywords": [],
+  "homepage": "https://github.com/ideasonpurpose/wp-social-share-links#readme",
+  "bugs": {
+    "url": "https://github.com/ideasonpurpose/wp-social-share-links/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ideasonpurpose/wp-social-share-links.git"
+  },
+  "license": "ISC",
+  "author": "Ideas On Purpose (https://www.ideasonpurpose.com)",
+  "contributors": [
+    "Joe Maller <joe@ideasonpurpose.com>"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "version": "version-everything && auto-changelog && git add -u"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.php",
+        "options": {
+          "phpVersion": "7.2",
+          "printWidth": 120,
+          "singleQuote": true,
+          "tabWidth": 4,
+          "trailingCommaPHP": true
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.14.0",
+    "auto-changelog": "^2.0.0",
+    "prettier": "^2.0.5",
+    "version-everything": "^0.6.3"
+  },
+  "auto-changelog": {
+    "package": true
+  },
+  "version-everything": {
+    "files": [
+      "README.md",
+      "composer.json"
+    ]
+  }
+}
