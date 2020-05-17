@@ -1,6 +1,6 @@
 <?php
 
-namespace ideasonpurpose;
+namespace IdeasOnPurpose;
 
 class ShareLink
 {
